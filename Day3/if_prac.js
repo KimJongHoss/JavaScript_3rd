@@ -20,7 +20,7 @@ let grade = '' // 등급을 담는 변수
 let opt = " " // 세부 등급을 담는 변수
 
 //등급 결정
-if(score>=90){
+if(score>=90 && score<=100){
     grade = 'A'
 }else if(score>=80){
     grade = 'B'
@@ -28,7 +28,7 @@ if(score>=90){
     grade = 'C'
 }else if(score>=60){
     grade = 'D'
-}else if(score<60){
+}else if(score<60 && score > 0){
     grade = 'F'
 }else{
     console.log("올바른 값을 넣어주세요.")
