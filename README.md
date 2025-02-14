@@ -7,3 +7,5 @@
 if문 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/BJ63Zd5Fye
 ### Day4 : switch문, 삼항연산식, 반복문 관련된 예제 모음입니다.
 for문/while문 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/B1US1coK1l
+### Day5 : 함수 관련된 예제 모음입니다.
+함수 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/BJ4d2P3Kkx
