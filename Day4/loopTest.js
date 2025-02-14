@@ -19,12 +19,12 @@ for(let i=1; i<=100; i+=2){
 for(let i=1;i<=50; i++){
     if(i%10%3==0 && i%10 != 0){
         if(Math.floor(i/10)%3 == 0 && i>10){ //10의자리와 1의자리 모두 3의 배수일 경우
-            console.log("짝짝",i)
+            console.log("짝짝")
         }else{ //1의자리가 3의 배수인 경우
-            console.log("짝",i)
+            console.log("짝")
         }
     }else if(Math.floor(i/10)%3 == 0 && i>10){ //10의 자리가 3의 배수인 경우
-        console.log("짝",i)
+        console.log("짝")
     }else{
         console.log(i)
     }
