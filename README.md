@@ -10,4 +10,4 @@ for문/while문 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw
 ### Day5 : 함수 관련된 예제 모음입니다.
 함수 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/BJ4d2P3Kkx
 ### Netlify Test : Netlify 도메인 만들기 연습용 폴더입니다. 특별한 내용은 없습니다.
-Netlfy 주소 : 
+Netlfy 주소 : https://netlifyforprac.netlify.app/
