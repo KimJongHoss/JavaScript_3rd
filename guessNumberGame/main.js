@@ -10,20 +10,20 @@
 // 유저가 이미 입력한 숫자를 또 입력하면 알려준다. 기회를 깎지 않는다.
 
 let computerNum = 0 //랜덤 번호
-let goButton = document.getElementById("goButton")
-let userInput = document.getElementById("userInput")
-let resultArea = document.getElementById("resultArea")
-let answerArea = document.getElementById("answerArea")
+let goButton = document.getElementById("goButton") //실행 버튼
+let userInput = document.getElementById("userInput") //숫자를 입력하는 input 창
+let resultArea = document.getElementById("resultArea") //UP/DOWN/맞춤 상태를 알려주는 창
+let answerArea = document.getElementById("answerArea") //랜덤 번호를 알려주는 창
 
-goButton.addEventListener("click", play)
+goButton.addEventListener("click", play) //go버튼을 눌렀을 때
 
-function pickRandomNum(){
+function pickRandomNum(){ //랜덤 번호 생성, 랜덤번호 출력
     computerNum = Math.floor(Math.random()*100 +1)
     answerArea.textContent = computerNum
     console.log("정답 : ", computerNum) 
 }
 
-function play(){
+function play(){ //랜덤 번호와 유저 번호 비교, 결과 출력
     let userValue = userInput.value
     if(userValue < computerNum){
         resultArea.textContent = "UP!!!!"
