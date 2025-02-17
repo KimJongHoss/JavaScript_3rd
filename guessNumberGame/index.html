@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,17 @@
 </head>
 <body>
     <h1>숫자 맞추기 게임</h1>
+    <label for="setChanceInput">기회 수 설정:</label>
+    <input type="number" id="setChanceInput" min="1" max="10">
+    <button id="setChanceButton">기회 설정</button>
     <div id="resultArea">결과가 나온다.</div>
+    <div id="chanceArea">남은 기회:</div>
     <input type="number" id="userInput">
     <button id="goButton">Go!</button>
+    <button id="resetButton">reset</button>
     <h3>랜덤 번호</h3>
-    <div id="answerArea">랜덤 번호가 나온다.</div>
+    <div id="answerArea">?????</div>
+    <button id="answerButton">랜덤 번호 보기</button>
 
     <script src="main.js"></script>
 </body>
