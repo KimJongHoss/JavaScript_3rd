@@ -9,8 +9,9 @@
 // 유저가 1~100 범위 밖의 숫자를 입력하면 알려준다. 기회를 깎지 않는다.
 // 유저가 이미 입력한 숫자를 또 입력하면 알려준다. 기회를 깎지 않는다.
 
-let gameOver = false
-let knowRandomButton = false
+let gameOver = false // 게임이 종료되는 것을 알리는 boolean
+let knowRandom = false // 게임이 시작되면 남은 기회 설정 버튼을 비활성화하기 위한 boolean
+let correct = false // 정답일 경우에 true로 활성화됨
 let computerNum = 0 //랜덤 번호
 let chances = 3 //남은 기회
 let goButton = document.getElementById("goButton") //실행 버튼
@@ -22,6 +23,7 @@ let setChanceInput = document.getElementById("setChanceInput") //기회 횟수�
 let resultArea = document.getElementById("resultArea") //UP/DOWN/맞춤 상태를 알려주는 창
 let answerArea = document.getElementById("answerArea") //랜덤 번호를 알려주는 창
 let chanceArea = document.getElementById("chanceArea") //남은 기회를 알려주는 창
+let historyArea = document.getElementById("historyArea") //입력했던 숫자를 출력해주는 창
 let history = [] //유저가 그동안 입력한 숫자들
 
 goButton.addEventListener("click", play) //go버튼을 눌렀을 때 play 함수 실행
@@ -61,9 +63,20 @@ function play(){ //랜덤 번호와 유저 번호 비교, 결과 출력
 
     controlChances() //남은 기회 제어
     
+    showHistory(history)
 }
 
 //play() 함수에 속한 함수들
+function writeHistory (userValue){ //history 배열 안에 userValue값 넣는 함수
+    if(history.includes(userValue)){
+        resultArea.textContent="이미 입력한 숫자입니다. 다른 숫자를 입력해주세요."
+        return false;
+    }
+    history.push(userValue)
+    console.log(history)
+    return true;
+}
+
 function showChances(){ //남은 기회를 보여주는 함수
     chances --;
     chanceArea.textContent = `남은 기회: ${chances}번` //남은 기회 출력
@@ -78,6 +91,7 @@ function compareValue(userValue){ //유저의 값과 랜덤 번호를 비교하�
     }else{
         resultArea.textContent = "맞췄습니다!!!"
         gameOver = true
+        correct = true
     }
 }
 
@@ -88,18 +102,16 @@ function controlChances(){ //남은 기회를 제어하는 함수
 
     if (gameOver){ //기회를 모두 소진하면 버튼 비활성화
         goButton.disabled = true;
+        if(correct == false){
+            resultArea.textContent = "기회를 모두 소진하여 실패하셨습니다."
+        }
     }
 }
 
-function writeHistory (userValue){ //history 배열 안에 userValue값 넣는 함수
-    if(history.includes(userValue)){
-        resultArea.textContent="이미 입력한 숫자입니다. 다른 숫자를 입력해주세요."
-        return false;
-    }
-    history.push(userValue)
-    console.log(history)
-    return true;
+function showHistory(history){
+    historyArea.textContent = history
 }
+
 
 //resetButton을 눌렀을 때 함수
 function resetLogic(){
@@ -115,12 +127,17 @@ function resetLogic(){
     resultArea.textContent = "결과가 나온다."
     //남은 기회 출력
     chanceArea.textContent = `남은 기회: ${chances}번`
+    // 랜덤 번호 버튼 초기화
+    answerButton.textContent = "랜덤 번호 보기"
+    // historyArea 초기화
+    historyArea.textContent = ""
 }
 
 //reset() 함수에 속한 함수들
 function resetChances(){ // 기회가 3으로 돌아온다.
     chances = 3
     gameOver = false
+    correct = false
     goButton.disabled = false;
     setChanceButton.disabled = false;
     setChanceInput.value = chances
@@ -128,18 +145,17 @@ function resetChances(){ // 기회가 3으로 돌아온다.
 
 // controlRandomButton을 눌렀을 때 함수
 function controlAnswerButton(){
-    if(knowRandomButton == false){
-        knowRandomButton = true
+    if(knowRandom == false){
+        knowRandom = true
         answerArea.textContent = computerNum
         answerButton.textContent = "랜덤 번호 숨기기"
     }else{
-        knowRandomButton = false
+        knowRandom = false
         answerArea.textContent = "?????"
         answerButton.textContent = "랜덤 번호 보기"
     }
     
 }
-
 
 //setChanceButton을 눌렀을 때 함수
 function setChance(){
