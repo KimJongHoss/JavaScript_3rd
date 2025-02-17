@@ -14,6 +14,7 @@ let knowRandom = false // 게임이 시작되면 남은 기회 설정 버튼을 
 let correct = false // 정답일 경우에 true로 활성화됨
 let computerNum = 0 //랜덤 번호
 let chances = 3 //남은 기회
+let resultAreaImg = document.querySelector(".main-img"); //메인 이미지
 let goButton = document.getElementById("goButton") //실행 버튼
 let resetButton = document.getElementById("resetButton") //리셋 버튼
 let answerButton = document.getElementById("answerButton") //랜덤 번호 버튼
@@ -85,10 +86,14 @@ function showChances(){ //남은 기회를 보여주는 함수
 
 function compareValue(userValue){ //유저의 값과 랜덤 번호를 비교하여 UP/DOWN/맞췄습니다 출력
     if(userValue < computerNum){
+        resultAreaImg.src =
+      "https://media.giphy.com/media/d5Hgiq0neyKqWO62cj/giphy.gif?cid=790b761155e47tihde7x4qgvf20lr42g2xfveqoz1vujbpfs&ep=v1_gifs_search&rid=giphy.gif&ct=g"; //UP일 때 이미지 출력
         resultArea.textContent = "UP!!!!"
     }else if(userValue > computerNum){
+        resultAreaImg.src = "https://media.giphy.com/media/XQOqynQhJte3rJj57l/giphy.gif?cid=ecf05e47xc2pwp6jd81edvpazh3foxo8ipay4to4ucw12e7b&ep=v1_gifs_search&rid=giphy.gif&ct=g"; //Down일 때 이미지 출력
         resultArea.textContent = "DOWN!!!!"
     }else{
+         resultAreaImg.src = "https://media.giphy.com/media/uVpPvvpU3nip5pBkPD/giphy.gif?cid=ecf05e47ygw7z1180xke4o2xrv4jixk0w7ghbgrtrd1g8rsu&ep=v1_gifs_search&rid=giphy.gif&ct=g";//정답일 때 이미지 출력
         resultArea.textContent = "맞췄습니다!!!"
         gameOver = true
         correct = true
@@ -104,6 +109,7 @@ function controlChances(){ //남은 기회를 제어하는 함수
         goButton.disabled = true;
         if(correct == false){
             resultArea.textContent = "기회를 모두 소진하여 실패하셨습니다."
+            resultAreaImg.src = "https://news.nateimg.co.kr/orgImg/mt/2020/12/10/mt_1607569205343_134930_0.jpg"; //실패 시 이미지 출력
         }
     }
 }
@@ -119,16 +125,19 @@ function resetLogic(){
     resetChances()
     // 새로운 번호가 생성
     pickRandomNum()
+    //리셋 시 원래 이미지 화면 출력
+    resultAreaImg.src =
+    "https://cdn.bizwatch.co.kr/news/photo/2019/12/27/6fd6741e3a2d1a7b3c6aa9f84824608c.gif";
     // user input창이 깨끗하게 정리
     userInput.value = ""
     // history 배열이 초기화
     history = [];
-    //resultArea.textContent가 "결과가 나온다"로 바뀜
-    resultArea.textContent = "결과가 나온다."
+    //resultArea.textContent가 "마시기 싫으면 맞춰라!"로 바뀜
+    resultArea.textContent = "마시기 싫으면 맞춰라!"
     //남은 기회 출력
     chanceArea.textContent = `남은 기회: ${chances}번`
     // 랜덤 번호 버튼 초기화
-    answerButton.textContent = "랜덤 번호 보기"
+    answerButton.textContent = "랜덤번호보기"
     // historyArea 초기화
     historyArea.textContent = ""
 }
@@ -148,11 +157,11 @@ function controlAnswerButton(){
     if(knowRandom == false){
         knowRandom = true
         answerArea.textContent = computerNum
-        answerButton.textContent = "랜덤 번호 숨기기"
+        answerButton.textContent = "랜덤번호숨기기"
     }else{
         knowRandom = false
         answerArea.textContent = "?????"
-        answerButton.textContent = "랜덤 번호 보기"
+        answerButton.textContent = "랜덤번호보기"
     }
     
 }
@@ -163,7 +172,7 @@ function setChance(){
         resultArea.textContent = "기회 수는 1~10까지의 숫자만 입력 가능합니다."
         return;
     }
-    resultArea.textContent = "결과가 나온다."
+    resultArea.textContent = "마시기 싫다면 맞춰라!"
     chances = setChanceInput.value
     chanceArea.textContent = `남은 기회: ${chances}번` //남은 기회 출력
 }
@@ -177,4 +186,18 @@ function checkRange (userValue){ //userValue가 1과 100 사이에 있는지 검
     return true; //유효함
 }
 
+//
+function updatePlaceholder() {
+    const userInput = document.getElementById("userInput");
+
+    if (window.innerWidth <= 768) { // 48rem = 768px
+        userInput.placeholder = "숫자 입력";
+    } else {
+        userInput.placeholder = "1부터 100까지 숫자를 입력";
+    }
+}
+
 pickRandomNum()
+// 페이지 로드 및 창 크기 변경 시 실행
+window.addEventListener("load", updatePlaceholder);
+window.addEventListener("resize", updatePlaceholder);

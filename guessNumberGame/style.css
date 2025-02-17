@@ -1,0 +1,231 @@
+body {
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "East Sea Dokdo", cursive;
+    background-image: url(image/jinro.png);
+    margin: 100px 0;
+  }
+  
+  .container {
+    border: 10px solid white;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(247, 243, 242, 0.7);
+  }
+  
+  .border-line {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-style {
+    height: 80px;
+    width: 100px;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: 30pt;
+    font-weight: bold;
+  }
+
+  .midButton-style {
+    height: 80px;
+    width: 170px;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: 30pt;
+    font-weight: bold;
+  }
+
+  .longButton-style {
+    height: 80px;
+    width: 170px;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: 30pt;
+    font-weight: bold;
+  }
+
+  .pre-title {
+    font-size: 4vw;
+    font-weight: bold;
+    color: blue;
+  }
+  .title {
+    font-size: 6vw;
+    font-weight: bold;
+  }
+  .sub-title {
+    font-size: 5vw;
+    font-weight: bold;
+  }
+
+  .main-img {
+    width: 20vw;
+    height: 20vh
+  }
+
+  .red-text {
+    color: red;
+  }
+  
+  .form-control {
+    height: 80px;
+  
+    font-size: 3vw;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  /* setChance 관련 */
+.setChance-text {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 요소 간 간격 조정 */
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+.setChance-text .col-md-6 {
+    flex: 1; /* 남은 공간 차지 */
+}
+
+.setChance-text .col-md-2 {
+    flex-shrink: 0; /* 크기 줄어들지 않도록 설정 */
+}
+
+  @media screen and (max-width: 48rem) {
+    body{
+        margin: 50px 0;
+    }
+    .pre-title {
+      font-size: 10vw;
+    }
+    .title {
+      font-size: 12vw;
+    }
+    .sub-title {
+      font-size: 11vw;
+    }
+    .form-control {
+      font-size: 8vw;
+      max-width: 500px;
+      margin-right: 0px;
+    }
+    .main-img {
+      width: 40vw;
+      margin-bottom: 20px;
+    }
+    .button-reset {
+      font-size: 5vw;
+      width: 80px;
+      height: 60px;
+    }
+
+    .button-style {
+        width: 100px;
+      }
+
+    .midButton-style{
+        width: 120px;
+    }   
+    
+    .longButton-style{
+        width: 170px;
+    }
+
+    /* goButton 관련 */
+    .row.d-flex.justify-content-center {
+        display: flex;
+        flex-direction: row; /* 가로 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+        gap: 10px; /* 요소 사이 간격 */
+        margin-bottom: 10px;
+    }
+
+    .row.d-flex.justify-content-center input {
+        width: 150px; /* 입력창 크기 조정 */
+    }
+
+    .row.d-flex.justify-content-center button {
+        width: 80px; /* 버튼 크기 줄이기 */
+        height: 40px; /* 버튼 높이 조정 */
+        font-size: 25px; /* 글자 크기 줄이기 */
+        padding-bottom: 45px;
+    }
+
+    /* setChance 관련 */
+    .setChance-text {
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center;
+    }
+    .setChance-text .col-md-2 {
+        margin-top: 10px; /* 버튼과 입력 필드 사이 간격 추가 */
+    }
+
+    /* 랜덤번호 보여주는 부분 */
+    .viewRandomNum,
+    .inputNum {
+        display: flex;
+        flex-direction: row; /* 가로 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        gap: 10px; /* 요소 간 간격 조정 */
+    }
+
+    .viewRandomNum h2,
+    .viewRandomNum button,
+    .inputNum h2 {
+        margin: 0; /* 기본 마진 제거 */
+    }
+
+    .viewRandomNum button {
+        width: 100px; /* 버튼 너비 줄이기 */
+        height: 40px; /* 버튼 높이 줄이기 */
+        font-size: 20px; /* 글자 크기 줄이기 */
+        padding: 5px 10px; /* 내부 여백 줄이기 */
+    }
+
+    /* 도전 횟수 조절 */
+    .setChance-text {
+        display: flex;
+        flex-direction: row; /* 가로 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        gap: 10px; /* 요소 간격 조정 */
+    }
+
+    .setChance-text input {
+        width: 120px; /* 입력 필드 크기 조정 */
+    }
+
+    .setChance-text button {
+        width: 100px; /* 버튼 크기 조정 */
+        height: 40px; /* 버튼 높이 조정 */
+        font-size: 22px; /* 글자 크기 줄이기 */
+        padding: 5px 10px; /* 내부 여백 줄이기 */
+    }
+
+    #userInput {
+        font-size: 30px; /* 작은 화면에서 폰트 크기 줄이기 */
+    }
+
+    #userInput, #setChanceInput {
+        height: 85%;  /* input의 너비를 줄임 */
+    }
+    
+    .button-style, .midButton-style {
+        font-size: 30px;  /* 버튼 크기도 줄이기 */
+    }
+
+    /* .pre-title,  */
+    .result-text {
+        display: none;
+    }
+
+  }

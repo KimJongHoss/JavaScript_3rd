@@ -4,25 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuessNumberGame</title>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>숫자 맞추기 게임</h1>
-    <label for="setChanceInput">기회 수 설정:</label>
-    <input type="number" id="setChanceInput" min="1" max="10">
-    <button id="setChanceButton">기회 설정</button>
-    <div id="resultArea">결과가 나온다.</div>
-    <div id="chanceArea">남은 기회:</div>
-    <input type="number" id="userInput">
-    <button id="goButton">Go!</button>
-    <button id="resetButton">reset</button>
-    <br>
-    <label for="answerArea">랜덤 번호</label>
-    <div id="answerArea">?????</div>
-    <button id="answerButton">랜덤 번호 보기</button>
-    <br>
-    <label for="historyArea">입력했던 숫자</label>
-    <div id="historyArea"></div>
+    <div class="container">
+        <h1 class="pre-title">숫자 맞추기 게임</h1>
+        <h1 class="sub-title"><span class="red-text">죽음</span>의 업 & 다운</h1>
+        <div id="result-area">
+            <img src="https://cdn.bizwatch.co.kr/news/photo/2019/12/27/6fd6741e3a2d1a7b3c6aa9f84824608c.gif" class="main-img">
+        </div>
+        <div class="setChance-text">
+            <div>
+                <input type="number" id="setChanceInput" class="form-control md-5" min="1" max="10">
+            </div>
+            <div>
+                <button id="setChanceButton" class="btn btn-info mb-2 midButton-style">횟수설정</button>
+            </div>
+        </div>
+        <div >
+            <h2 id="resultArea">마시기 싫다면 맞춰라!</h2>
+            <h2 id="chanceArea">남은 기회:</h2>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div>
+                <input type="number" id="userInput" class="form-control" placeholder="1부터 100까지 숫자를 입력">
+            </div>
+            <div>
+                <button class="btn btn-success button-style" id="goButton">Go!</button>
+            </div>
+        </div>
+        <div class="viewRandomNum">
+            <h2>랜덤 번호</h2>
+            <h2 id="answerArea">?????</h2>
+            <button id="answerButton" class="btn btn-info mb-2 longButton-style">랜덤번호보기</button>
+        </div>
+        <div class="inputNum">
+            <h2>입력했던 숫자</h2>
+            <h2 id="historyArea"></h2>
+        </div>
+    </div>
+
+    <button class="btn btn-warning mt-3 button-style button-reset" id="resetButton">reset</button>
 
     <script src="main.js"></script>
 </body>
