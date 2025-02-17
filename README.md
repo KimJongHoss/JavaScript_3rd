@@ -11,5 +11,5 @@ for문/while문 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw
 함수 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/BJ4d2P3Kkx
 ### Netlify Test : Netlify 도메인 만들기 연습용 폴더입니다. 특별한 내용은 없습니다.
 Netlify 주소 : https://netlifyforprac.netlify.app/
-### guessNumberGame : 숫자맞추기 게임 프로젝트입니다. 현재 기본 로직에 UI/UX를 위한 기능을 추가하였습니다.
+### guessNumberGame : 숫자맞추기 게임 프로젝트입니다.
 Netlify 주소 : https://jinroguessnumber.netlify.app/
