@@ -1,0 +1,12 @@
+body{
+    margin: 0px;
+    background-image: url("assets/image/backgroundImage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
