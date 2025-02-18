@@ -13,4 +13,4 @@ for문/while문 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw
 Netlify 주소 : https://netlifyforprac.netlify.app/
 ### guessNumberGame : 숫자맞추기 게임 프로젝트입니다.
 Netlify 주소 : https://jinroguessnumber.netlify.app/
-### ToDoList : To-Do-List 프로젝트입니다. 간단한 HTML만 넣어두었습니다.
+### ToDoList : To-Do-List 프로젝트입니다. 메인 로직(할 일 넣기)까지 구현했습니다.
