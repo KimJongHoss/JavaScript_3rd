@@ -44,5 +44,49 @@ html, body {
 .task {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative; /* 배경을 포함시키기 위해 position 설정 */
+}
+
+/* task간 간격 조절 */
+.task div { 
+    display: flex;
+    align-items: center; /* 세로 정렬 맞춤 */
+    gap: 20px; /* 원하는 간격 설정 */
+}
+
+
+.task-done {
+    flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
+    text-decoration: line-through;
+    background-color: #f0f0f0;
     padding: 1em;
+    margin-right: 1em;
+}
+
+.task-notDone{
+    padding: 1em;
+}
+
+.checkIcon {
+    width:30px ;
+    height:30px ;
+}
+
+.returnIcon {
+    width:30px ;
+    height:30px ;
+}
+
+.deleteIcon {
+    width:30px ;
+    height:30px ;
+    margin-right: 1em;
+}
+
+#add-button{
+    width:30px ;
+    height:30px ;
+    margin-bottom: 5px;
 }
