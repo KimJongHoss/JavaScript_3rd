@@ -27,11 +27,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 부드러운 텍스트 그림자 추가 */
 }
 
-
-/* .task-area{
-    border: 1px solid lightblue;
-} */
-
+/* tab 관련 스타일 */
 .task-tabs{
     display: flex;
     /* border-bottom: 1px solid lightblue; */
@@ -47,7 +43,6 @@ h1 {
 .task-tabs div{
     padding: 1em;
 }
-
 
 .task {
     display: flex;
@@ -85,6 +80,10 @@ h1 {
     margin-right: 1em;
 }
 
+.task-notDone{
+    padding: 1em;
+}
+
 .input-area {
     display: flex;
     align-items: center; /* 세로로 가운데 정렬 */
@@ -107,6 +106,12 @@ h1 {
     outline: none;
 }
 
+.task-tabs div{
+    cursor: pointer;
+}
+
+
+/* button 관련 */
 #add-button {
     width: 40px;
     height: 40px;
@@ -117,61 +122,6 @@ h1 {
 
 #add-button:hover {
     transform: scale(1.1); /* 버튼 호버 시 확대 효과 */
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    #task-input {
-        width: 100%;
-        padding: 8px;
-    }
-
-    .task-tabs div {
-        padding: 10px;
-        font-size: 1em;
-    }
-
-    #add-button {
-        width: 40px;
-        height: 40px;
-    }
-
-}
-
-/* 화면 크기가 커질 때 input과 버튼이 한 줄에 배치되도록 조정 */
-@media (min-width: 768px) {
-
-    .input-area {
-        justify-content: flex-start /* 더 넓은 화면에서 input과 버튼이 옆에 배치되도록 */
-    }
-
-    #task-input {
-        flex-grow: 0; /* 더 이상 남은 공간을 차지하지 않도록 설정 */
-        width: 80%; /* input 박스의 폭을 70%로 제한 */
-    }
-
-    #add-button {
-        margin-left: 10px; /* 버튼과 input 사이에 간격 추가 */
-    }
-}
-
-#under-line{
-    height:4px ;
-    background-color: aqua;
-    position: absolute;
-    width: 100%;
-    left: 0px;
-    top: 52px;
-    padding: 0px;
-    /* 부드럽게 넘어가게 하는 요소 */
-    transition: 0.5s;
-}
-
-.task-notDone{
-    padding: 1em;
 }
 
 .checkIcon {
@@ -196,14 +146,20 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* tab 관련 */
-
-.task-tabs div{
-    cursor: pointer;
+/* underLine */
+#under-line{
+    height:4px ;
+    background-color: aqua;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 52px;
+    padding: 0px;
+    /* 부드럽게 넘어가게 하는 요소 */
+    transition: 0.5s;
 }
 
 /* alert 관련 */
-
 #custom-alert {
     display: none; /* 기본적으로 숨겨두기 */
     position: fixed;
@@ -228,13 +184,6 @@ h1 {
     transform: translate(-50%, -50%) scale(1); /* 처음 상태에서 부드럽게 나타나도록 */
 }
 
-/* 메시지 텍스트 */
-#custom-alert p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* 확인 버튼 스타일 */
 #custom-alert button {
     background-color: #4CAF50; /* 초록색 */
     color: white;
@@ -247,7 +196,51 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-/* 버튼에 마우스 오버 시 효과 */
 #custom-alert button:hover {
     background-color: #45a049;
+}
+
+#custom-alert p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 미디어쿼리 : 768px이하 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #task-input {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .task-tabs div {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    #add-button {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+/* 미디어쿼리 : 768px이하 */
+@media (min-width: 768px) {
+
+    .input-area {
+        justify-content: flex-start /* 더 넓은 화면에서 input과 버튼이 옆에 배치되도록 */
+    }
+
+    #task-input {
+        flex-grow: 0; /* 더 이상 남은 공간을 차지하지 않도록 설정 */
+        width: 80%; /* input 박스의 폭을 70%로 제한 */
+    }
+
+    #add-button {
+        margin-left: 10px; /* 버튼과 input 사이에 간격 추가 */
+    }
 }
