@@ -115,7 +115,6 @@ h1 {
     width:30px;
     height:30px;
     margin-bottom: 5px;
-    border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
