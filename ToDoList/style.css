@@ -28,22 +28,6 @@ h1 {
 }
 
 /* tab 관련 스타일 */
-.task-tabs{
-    display: flex;
-    /* border-bottom: 1px solid lightblue; */
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
-    margin-bottom: 20px;
-}
-
-.task-tabs div:hover {
-    color: aqua;
-}
-
-.task-tabs div{
-    padding: 1em;
-}
-
 .task {
     display: flex;
     justify-content: space-between;
@@ -61,6 +45,22 @@ h1 {
     background-color: #f1f1f1; /* 더 진한 배경 색상 */
     transform: scale(1.01); /* 카드가 살짝 확대되는 효과 */
     transition: background-color 0.3s ease, transform 0.3s ease; /* 애니메이션 부드럽게 */
+}
+
+.task-tabs{
+    display: flex;
+    /* border-bottom: 1px solid lightblue; */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.task-tabs div{
+    padding: 1em;
+}
+
+.task-tabs div:hover {
+    color: aqua;
 }
 
 /* task간 간격 조절 */
