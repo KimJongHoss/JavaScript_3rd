@@ -70,7 +70,6 @@ h1 {
     gap: 20px; /* 원하는 간격 설정 */
 }
 
-
 .task-done {
     flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
     text-decoration: line-through;
@@ -113,8 +112,9 @@ h1 {
 
 /* button 관련 */
 #add-button {
-    width: 40px;
-    height: 40px;
+    width:30px;
+    height:30px;
+    margin-bottom: 5px;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -124,6 +124,7 @@ h1 {
     transform: scale(1.1); /* 버튼 호버 시 확대 효과 */
 }
 
+/* 아이콘 관련 */
 .checkIcon {
     width:30px ;
     height:30px ;
@@ -138,12 +139,6 @@ h1 {
     width:30px ;
     height:30px ;
     margin-right: 1em;
-}
-
-#add-button{
-    width:30px ;
-    height:30px ;
-    margin-bottom: 5px;
 }
 
 /* underLine */
