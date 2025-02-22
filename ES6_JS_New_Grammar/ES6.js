@@ -40,17 +40,6 @@ let {personName,...restInfo} = person2 //이름만 변수로 꺼내오고 다른
 
 console.log(personName, restInfo)
 
-// 4) 동적인 데이터 log에서 사용하기
-
-let name2 = "chelsu"
-let age2 = 25
-
-console.log("제 이름은",name2,"입니다. 제 나이는", age, "입니다.")
-console.log("제 이름은 "+name2+"입니다. 제 나이는"+ age+ "입니다.")
-
-console.log(`제 이름은 ${name2}입니다. 제 나이는 ${age2}입니다.`)
-
-
 // 2. 배열
 
 // 1) array의 요소들을 변수로 만들고 순서대로 값을 넣어주는 방법
@@ -130,3 +119,14 @@ person4.getInfo3() //지역 변수가 나오게 됨
 // 함수를 부르는 객체가 this
 // 이 this가 화살표 함수에는 없음
 //lexical scope : 내가 포함되어 있는 범위
+
+
+// 3. 동적인 데이터 log에서 사용하기
+
+let name2 = "chelsu"
+let age2 = 25
+
+console.log("제 이름은",name2,"입니다. 제 나이는", age, "입니다.")
+console.log("제 이름은 "+name2+"입니다. 제 나이는"+ age+ "입니다.")
+
+console.log(`제 이름은 ${name2}입니다. 제 나이는 ${age2}입니다.`)
