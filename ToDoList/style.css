@@ -221,7 +221,7 @@ h1 {
 
 }
 
-/* 미디어쿼리 : 768px이하 */
+/* 미디어쿼리 : 768px이상 */
 @media (min-width: 768px) {
 
     .input-area {
