@@ -16,4 +16,4 @@ Netlify 주소 : https://jinroguessnumber.netlify.app/
 ### ToDoList : To-Do-List 프로젝트입니다.
 Netlify 주소 : https://jongtodolist.netlify.app/
 ### ES6_JS_New_Grammar : ES6 자바스크립트 최신 문법 예제입니다.
-ES6 문제 HackMD 링크 :
+ES6 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/rktwBPvckx
