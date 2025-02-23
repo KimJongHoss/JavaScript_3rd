@@ -99,7 +99,7 @@ function getCalendar(first, ...rest) {
   }
   console.log(getCalendar("January", "Febuary", "March")); // 여기를 바꾸시오
 
-//   7. 두 어레이들중 최소값을 찾는 함수를 완성하시오
+//   7. 두 어레이들 중 최소값을 찾는 함수를 완성하시오
 //   function getMinimum(){
 //       let a= [45,23,78]
 //       let b = [54,11,9]
@@ -126,10 +126,10 @@ console.log(getMinimum())
 
 function sumNumber() {
   // 여기서부터 바꾸시오
-  const sum =(a, b) => a + b;
+  const sum =(x, y) => x + y;
   return sum(40, 10);
 }
-console.log(sumNumber())
+console.log("sumNumber() : ",sumNumber())
 
 // 9. 다음함수를 화살표 함수로 바꾸시오
 // function sumNumber() {
@@ -145,10 +145,10 @@ console.log(sumNumber())
 // }
 // console.log(sumNumber());
 
-function sumNumber() {
+function sumNumber2() {
   //여기 아래부분 함수 정의를 바꾸시오 
   let addNumber = (a) => (b) =>(c) =>a+b+c;
       
     return addNumber(1)(2)(3);
 }
-console.log(sumNumber());
+console.log(sumNumber2());
