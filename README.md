@@ -19,4 +19,4 @@ Netlify 주소 : https://jongtodolist.netlify.app/
 ES6 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/rktwBPvckx
 ### arrayFunction : 배열 함수 최신 문법 예제입니다.
 배열 함수 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/SJpHSa_c1g
-### apiTest : apiTest를 위한 파일입니다.
+### jongsNews : News API를 이용한 News 프로젝트입니다. 현재 파일 세팅만 해놓은 상태입니다.
