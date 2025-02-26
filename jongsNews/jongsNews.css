@@ -1,0 +1,148 @@
+.head-line{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.head-line svg{
+    width: 400px;
+}
+
+.menus{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 4px double #000;
+}
+
+.menus button {
+    border: none;
+    background: none;
+    margin: 5px;
+}
+
+.menus button:hover{
+    background-color: antiquewhite;
+}
+
+.news-img-size{
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.news{
+    padding: 1em;
+    border-bottom: 2px solid black;
+}
+
+.search{
+    display: flex;
+    margin-top: 1em;
+    gap: 10px;
+}
+
+.search img{
+    max-width: 100%;
+    max-height: 30px;
+}
+
+.search img:hover{
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+.search-box {
+    display: none;  /* 기본적으로 input 박스 숨기기 */
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 4px; /* 테두리 둥글게 */
+    font-size: 14px; /* 글자 크기 */
+    width: 200px; /* 너비 */
+    box-sizing: border-box; /* padding, border 포함 너비 계산 */
+    transition: border-color 0.3s; /* 테두리 색상 변경 애니메이션 */
+}
+
+.search-box:focus {
+    outline: none; /* 포커스 시 테두리 제거 */
+    border-color: antiquewhite; /* 포커스 시 테두리 색상 변경 */
+}
+
+.search-button {
+    display: none;
+    background-color: #4CAF50; /* 배경색 */
+    color: white; /* 글자색 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 테두리 둥글게 */
+    font-size: 16px; /* 글자 크기 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    transition: background-color 0.3s; /* 배경색 변경 애니메이션 */
+}
+
+.search-button:hover {
+    background-color: #3e8e41; /* 마우스 호버 시 배경색 변경 */
+}
+
+/* 모바일 환경 (최대 768px 너비) */
+@media (max-width: 768px) {
+    .menus {
+        display: none; /* 기본적으로 메뉴 숨김 */
+    }
+
+    .menus.active {
+        display: flex; /* active 클래스가 추가되면 메뉴 표시 */
+    }
+
+    .menus button {
+        width: 90%;
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .hamburger-menu {
+        display: block; /* 햄버거 메뉴 버튼 표시 */
+        position: static;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .hamburger-menu .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .news-img{
+        display: flex;          /* Flexbox를 사용하여 레이아웃 설정 */
+        justify-content: center; /* 좌우 기준으로 가운데 정렬 */
+    }
+
+    .news-contents {
+        display: flex;
+        flex-direction: column; /* 자식 요소들을 세로로 정렬 */
+        align-items: center;     /* 세로 가운데 정렬 */
+    }
+
+    .hamburger-menu, .search {
+        display: inline-block; /* 인라인 블록 요소로 변경 */
+        vertical-align: middle; /* 세로 가운데 정렬 */
+    }
+
+    .hamburger-menu {
+        margin-right: 10px; /* 햄버거 메뉴와 검색창 사이 간격 */
+    }
+
+    .search{
+        display: flex;
+        max-height: 50px;
+    }
+}
+
+/* 데스크탑 환경 (769px 이상 너비) */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none; /* 햄버거 메뉴 버튼 숨김 */
+    }
+}

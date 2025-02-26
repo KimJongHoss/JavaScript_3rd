@@ -17,3 +17,29 @@ async function getLatestNews () {
 };
 
 getLatestNews();
+
+document.addEventListener('DOMContentLoaded', function () { //햄버거 메뉴
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const menus = document.querySelector('.menus');
+
+    if (hamburgerMenu && menus) {
+        hamburgerMenu.addEventListener('click', function () {
+            menus.classList.toggle('active');
+        });
+    }
+});
+
+document.getElementById("search-icon").addEventListener("click", function() { //input 박스 보였다가 안보였다가
+    var searchBox = document.getElementById("search-box");
+    var searchButton = document.getElementById("search-button");
+    if (searchBox.style.display === "none" || searchBox.style.display === "") {
+        searchBox.style.display = "block";  // input 박스를 보이게
+    } else {
+        searchBox.style.display = "none";  // input 박스를 숨기게
+    }
+    if (searchButton.style.display === "none" || searchButton.style.display === "") {
+        searchButton.style.display = "block";  // button을 보이게
+    } else {
+        searchButton.style.display = "none";  // button을 숨기게
+    }
+});
