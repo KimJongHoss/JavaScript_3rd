@@ -20,6 +20,6 @@ ES6 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/rktwBPvckx
 ### arrayFunction : 배열 함수 최신 문법 예제입니다.
 배열 함수 문제 HackMD 링크 : https://hackmd.io/@ggBTzrTxSv2iIVFujwBOpw/SJpHSa_c1g
 ### ASYNC-TEST : ASYNC의 이해를 위한 예제입니다.
-### jongsNews : News API를 이용한 News 프로젝트입니다. 현재 파일 세팅만 해놓은 상태입니다.
+### jongsNews : News API를 이용한 News 프로젝트입니다. 현재 간단한 UI 구현 및 render() 함수까지 구현했습니다.
 ### jongsNewsForDistribution : jongsNews와 코드는 같지만 사용하는 API가 로컬에서만 사용할 수 있기 때문에 배포할 때 사용하는 URL을 바꿔놓은 코드입니다.
 Netlify 주소 : https://jongsnews.netlify.app/
