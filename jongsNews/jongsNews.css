@@ -1,3 +1,4 @@
+/* head-line 관련 */
 .head-line{
     margin-top: 1em;
     display: flex;
@@ -8,6 +9,7 @@
     width: 400px;
 }
 
+/* menus 관련 */
 .menus{
     margin-top: 1em;
     display: flex;
@@ -27,16 +29,18 @@
     background-color: antiquewhite;
 }
 
-.news-img-size{
-    max-width: 100%;
-    max-height: 250px;
-}
-
+/* news 관련 (기사를 감싸고 있는 div)*/
 .news{
     padding: 1em;
     border-bottom: 2px solid black;
 }
 
+.news-img-size{
+    max-width: 100%;
+    max-height: 250px;
+}
+
+/* search 관련 */
 .search{
     display: flex;
     margin-top: 1em;
@@ -85,6 +89,7 @@
 
 /* 모바일 환경 (최대 768px 너비) */
 @media (max-width: 768px) {
+    /* 데스크톱 메뉴 관련 */
     .menus {
         display: none; /* 기본적으로 메뉴 숨김 */
     }
@@ -99,6 +104,7 @@
         margin: 8px 0;
     }
 
+    /* 모바일 메뉴 관련 */
     .hamburger-menu {
         display: block; /* 햄버거 메뉴 버튼 표시 */
         position: static;
@@ -114,6 +120,16 @@
         transition: 0.4s;
     }
 
+    .hamburger-menu, .search {
+        display: inline-block; /* 인라인 블록 요소로 변경 */
+        vertical-align: middle; /* 세로 가운데 정렬 */
+    }
+
+    .hamburger-menu {
+        margin-right: 10px; /* 햄버거 메뉴와 검색창 사이 간격 */
+    }
+
+    /* news 관련(기사를 감싸고 있는 div) */
     .news-img{
         display: flex;          /* Flexbox를 사용하여 레이아웃 설정 */
         justify-content: center; /* 좌우 기준으로 가운데 정렬 */
@@ -125,15 +141,7 @@
         align-items: center;     /* 세로 가운데 정렬 */
     }
 
-    .hamburger-menu, .search {
-        display: inline-block; /* 인라인 블록 요소로 변경 */
-        vertical-align: middle; /* 세로 가운데 정렬 */
-    }
-
-    .hamburger-menu {
-        margin-right: 10px; /* 햄버거 메뉴와 검색창 사이 간격 */
-    }
-
+    /* search 관련 */
     .search{
         display: flex;
         max-height: 50px;

@@ -1,20 +1,74 @@
 
+
 const API_KEY=`aba0666514534ea79d87736c79641bcd`
 let newsList = []
+const menus = document.querySelectorAll(".menus button")//모든 카테고리
+menus.forEach(menu=>menu.addEventListener("click", (event)=>getNewsByCategory(event))) //menu click event
+
 //news 데이터를 가져오는 함수
-async function getLatestNews () {
-    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);
+// async function getLatestNews () {
+//     const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`);
 
-    console.log("kkk", url);
+//     const response = await fetch(url);//fetch : url에 있는 데이터를 가져오는 함수
+//     const data = await response.json()
+//     newsList = data.articles
+//     render();
 
-    const response = await fetch(url);//fetch : url에 있는 데이터를 가져오는 함수
-    const data = await response.json()
-    newsList = data.articles
+// };
+
+// const getNewsByCategory= async (event)=>{ // menu click 함수
+//     const category = event.target.textContent.toLowerCase();
+//     console.log("category",category);
+//     const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`);
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     newsList = data.articles;
+//     console.log("data", data)
+
+//     render();
+// }
+
+// const getNewsByKeyword= async ()=>{
+//     const keyword = document.getElementById("search-box").value;
+//     console.log("keyword",keyword);
+//     const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&q=${keyword}&apiKey=${API_KEY}`);
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     newsList = data.articles;
+//     console.log("keyword", keyword)
+
+//     render();
+// }
+
+const fetchNews = async (params = {}) => {
+    const url = new URL("https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines");
+    url.searchParams.append("country", "kr"); //append : URLSearchParams 객체의 메서드로, URL에 쿼리 파라미터를 추가하는 역할
+    // url.searchParams.append("apiKey", API_KEY);
+
+    Object.entries(params).forEach(([key, value]) => { //Object.entries(params): 객체의 속성(key-value 쌍)을 배열 형태로 변환하는 메서드
+        url.searchParams.append(key, value);
+    });
+
+    const response = await fetch(url);
+    const data = await response.json();
+    newsList = data.articles;
+
     render();
-    console.log("hhh", response)
-    console.log("ggg", newsList)
+};
 
+// 최신 뉴스 가져오기
+const getLatestNews = () => fetchNews();
 
+// 카테고리별 뉴스 가져오기
+const getNewsByCategory = (event) => {
+    const category = event.target.textContent.toLowerCase();
+    fetchNews({ category });
+};
+
+// 키워드 검색 뉴스 가져오기
+const getNewsByKeyword = () => {
+    const keyword = document.getElementById("search-box").value;
+    fetchNews({ q: keyword });
 };
 
 const render=()=>{
@@ -79,6 +133,11 @@ const render=()=>{
 
 getLatestNews();
 
+// 1. 버튼들에 클릭 이벤트 주기
+
+// 2. 카테고리별 뉴스 가져오기
+// 3. 그 뉴스 데이터 보여주기
+
 
 function timeAgo(dateString) { //시간을 ~ago 형태로 바꾸는 함수
     const date = new Date(dateString);
@@ -104,11 +163,6 @@ function timeAgo(dateString) { //시간을 ~ago 형태로 바꾸는 함수
         return years + " years ago";
     }
 }
-
-// 사용 예시
-const dateString = "2025-02-25T16:05:00Z";
-const result = timeAgo(dateString);
-console.log(result); // 출력: "2 days ago"
 
 document.addEventListener('DOMContentLoaded', function () { //햄버거 메뉴
     const hamburgerMenu = document.querySelector('.hamburger-menu');
