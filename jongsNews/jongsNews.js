@@ -40,19 +40,31 @@ menus.forEach(menu=>menu.addEventListener("click", (event)=>getNewsByCategory(ev
 // }
 
 const fetchNews = async (params = {}) => {
-    const url = new URL("https://newsapi.org/v2/top-headlines");
-    url.searchParams.append("country", "us"); //append : URLSearchParams 객체의 메서드로, URL에 쿼리 파라미터를 추가하는 역할
-    url.searchParams.append("apiKey", API_KEY);
+    try{
+        const url = new URL("https://newsapi.org/v2/top-headlines");
+        url.searchParams.append("country", "us"); //append : URLSearchParams 객체의 메서드로, URL에 쿼리 파라미터를 추가하는 역할
+        url.searchParams.append("apiKey", API_KEY);
+    
+        Object.entries(params).forEach(([key, value]) => { //Object.entries(params): 객체의 속성(key-value 쌍)을 배열 형태로 변환하는 메서드
+            url.searchParams.append(key, value);
+        });
+    
+        const response = await fetch(url);
+        const data = await response.json();
+        if(response.status===200){
+            if(data.articles.length===0){ //검색 결과가 없을 때
+                throw new Error("No result for this search")
+            }
+            newsList = data.articles;
+        
+            render();            
+        }else{
+            throw new Error(data.message)
+        }
 
-    Object.entries(params).forEach(([key, value]) => { //Object.entries(params): 객체의 속성(key-value 쌍)을 배열 형태로 변환하는 메서드
-        url.searchParams.append(key, value);
-    });
-
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-
-    render();
+    } catch(error){
+        errorRender(error.message)
+    }
 };
 
 // 최신 뉴스 가져오기
@@ -127,6 +139,13 @@ const render=()=>{
     console.log("html", newsHTML)
 
     document.getElementById('news-board').innerHTML = newsHTML;
+}
+
+const errorRender=(errorMessage)=>{
+    const errorHTML = `<div class="alert alert-danger" role="alert">
+        ${errorMessage}
+    </div>`
+    document.getElementById('news-board').innerHTML=errorHTML
 }
 
 getLatestNews();

@@ -1,5 +1,4 @@
 
-
 const API_KEY=`aba0666514534ea79d87736c79641bcd`
 let newsList = []
 const menus = document.querySelectorAll(".menus button")//모든 카테고리
@@ -41,19 +40,31 @@ menus.forEach(menu=>menu.addEventListener("click", (event)=>getNewsByCategory(ev
 // }
 
 const fetchNews = async (params = {}) => {
-    const url = new URL("https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines");
-    url.searchParams.append("country", "kr"); //append : URLSearchParams 객체의 메서드로, URL에 쿼리 파라미터를 추가하는 역할
-    // url.searchParams.append("apiKey", API_KEY);
+    try{
+        const url = new URL("https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines");
+        url.searchParams.append("country", "kr"); //append : URLSearchParams 객체의 메서드로, URL에 쿼리 파라미터를 추가하는 역할
+        // url.searchParams.append("apiKey", API_KEY);
 
-    Object.entries(params).forEach(([key, value]) => { //Object.entries(params): 객체의 속성(key-value 쌍)을 배열 형태로 변환하는 메서드
-        url.searchParams.append(key, value);
-    });
+        Object.entries(params).forEach(([key, value]) => { //Object.entries(params): 객체의 속성(key-value 쌍)을 배열 형태로 변환하는 메서드
+            url.searchParams.append(key, value);
+        });
+    
+        const response = await fetch(url);
+        const data = await response.json();
+        if(response.status===200){
+            if(data.articles.length===0){ //검색 결과가 없을 때
+                throw new Error("No result for this search")
+            }
+            newsList = data.articles;
+        
+            render();            
+        }else{
+            throw new Error(data.message)
+        }
 
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-
-    render();
+    } catch(error){
+        errorRender(error.message)
+    }
 };
 
 // 최신 뉴스 가져오기
@@ -75,12 +86,12 @@ const render=()=>{
     const newsHTML = newsList.map(
         (news)=>{
             // // 테스트를 위해 news.source.name을 null로 변경
-            // if (news.title === "유재석 “아이유, 박명수 앞에서 안 쫄아..저 친구 보통 아니다 느껴” (‘핑계고’)[종합] - 조선비즈 - 조선비즈") { // 특정 뉴스 제목을 선택하여 테스트
+            // if (news.title === "Apple’s new C1 brings two killer features, and it’s just the start - 9to5Mac") { // 특정 뉴스 제목을 선택하여 테스트
             //     news.source.name = null;
             // }
 
             // // 테스트를 위해 news.publishedAt을 특정 시간대로 변경
-            // if (news.title === "유재석 “아이유, 박명수 앞에서 안 쫄아..저 친구 보통 아니다 느껴” (‘핑계고’)[종합] - 조선비즈 - 조선비즈") { // 특정 뉴스 제목을 선택하여 테스트
+            // if (news.title === "Apple’s new C1 brings two killer features, and it’s just the start - 9to5Mac") { // 특정 뉴스 제목을 선택하여 테스트
             //     news.publishedAt = "2025-02-17T16:05:00Z";
             // }
 
@@ -103,7 +114,6 @@ const render=()=>{
             }
              // 따옴표 추가
              newsImage = `"${newsImage}"`;
-
              if (newsSource === null) { //출처 없는 경우
                 newsSource = "No source";
                 console.log("newsSource", newsSource)
@@ -129,6 +139,13 @@ const render=()=>{
     console.log("html", newsHTML)
 
     document.getElementById('news-board').innerHTML = newsHTML;
+}
+
+const errorRender=(errorMessage)=>{
+    const errorHTML = `<div class="alert alert-danger" role="alert">
+        ${errorMessage}
+    </div>`
+    document.getElementById('news-board').innerHTML=errorHTML
 }
 
 getLatestNews();
