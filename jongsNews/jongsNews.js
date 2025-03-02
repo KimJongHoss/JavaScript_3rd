@@ -195,8 +195,12 @@ const paginationRender=()=>{
     const nextPageDisabled = page >= totalPages ? 'disabled' : ''; // 마지막 페이지일 때 비활성화
 
     console.log(lastPage, firstPage)
-    
-    let paginationHTML = `
+
+    let paginationHTML = `<li class="page-item ${prevPageDisabled}" onclick="moveToPage(1)">
+            <a class="page-link" href="#">&lt&lt</a>
+        </li>`
+
+    paginationHTML += `
         <li class="page-item ${prevPageDisabled}" onclick="moveToPage(${page - 1})">
             <a class="page-link" href="#">Previous</a>
         </li>
@@ -212,17 +216,12 @@ const paginationRender=()=>{
         </li>
     `;
 
+    paginationHTML += `<li class="page-item ${nextPageDisabled}" onclick="moveToPage(${totalPages})">
+            <a class="page-link" href="#">&gt&gt</a>
+        </li>`
+
     console.log("paginationHTML", paginationHTML)
     document.querySelector(".pagination").innerHTML=paginationHTML
-    // <nav aria-label="Page navigation example">
-    //     <ul class="pagination">
-    //         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    //         <li class="page-item"><a class="page-link" href="#">1</a></li>
-    //         <li class="page-item"><a class="page-link" href="#">2</a></li>
-    //         <li class="page-item"><a class="page-link" href="#">3</a></li>
-    //         <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    //     </ul>
-    // </nav>
 }
 
 const moveToPage=(pageNum)=>{
